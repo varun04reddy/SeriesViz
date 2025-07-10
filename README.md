@@ -1,27 +1,22 @@
-# 📊 SeriesViz - Time Series Data Visualization Dashboard
+# SeriesViz: Time Series Financial Analysis Toolkit
 
-A powerful and intuitive Streamlit dashboard for visualizing and analyzing time series data. Upload your CSV files, configure your data, and explore interactive visualizations with ease.
+A professional toolkit for visualizing and analyzing time series data, specifically designed for financial applications. This Streamlit-based dashboard enables quantitative researchers and analysts to upload, process, and explore complex datasets to generate hypotheses and identify potential signals.
 
-## 🚀 Features
+## Core Features
 
-### Core Functionality
-- **📁 File Upload**: Drag and drop CSV files directly into the dashboard
-- **⏰ Timestamp Selection**: Automatically detect and convert timestamp columns to datetime format
-- **📊 Variable Selection**: Choose which columns to analyze and visualize
-- **🔧 Data Preprocessing**: Remove NaN values and apply Z-score normalization
-- **📈 Interactive Visualizations**: Create beautiful time series plots using Plotly
-- **🔄 Rolling Correlation Analysis**: Analyze correlations between variables over time with configurable window sizes
-- **📋 Statistical Summaries**: View descriptive statistics and correlation matrices
-- **💾 Data Export**: Download processed data for further analysis
+- **Data Ingestion**: Upload CSV files directly into the dashboard for immediate analysis.
+- **Timestamp Processing**: Automatically detects and converts timestamp columns to a standardized datetime format.
+- **Variable Selection**: Isolate specific data columns for focused analysis and visualization.
+- **Data Preprocessing**: Includes options for handling missing values (NaN removal) and data normalization (Z-score).
+- **Interactive Visualization**: Generate interactive time series plots using Plotly for in-depth exploration of temporal data.
+- **Quantitative Analysis Tools**:
+    - **Rolling Correlation Analysis**: Analyze the correlation between multiple time series over user-defined rolling windows. This is crucial for understanding dynamic relationships between financial instruments or economic indicators.
+    - **Statistical Summaries**: Generate descriptive statistics and correlation matrices to provide a quantitative overview of the dataset.
+- **Hypothesis Generation**: The visualization and analysis tools are designed to help researchers formulate and test hypotheses about market behavior and relationships between financial assets.
+- **Signal Exploration**: By analyzing correlations and trends, users can explore potential alpha signals for trading strategies.
+- **Data Export**: Download the processed and analyzed data as a CSV file for further offline analysis or backtesting.
 
-### User Experience
-- **🎨 Modern UI**: Clean, intuitive interface with responsive design
-- **📱 Responsive Layout**: Works seamlessly on desktop and mobile devices
-- **⚡ Real-time Updates**: Instant visualization updates as you modify settings
-- **🛡️ Error Handling**: Robust error handling with helpful error messages
-- **📖 Helpful Tooltips**: Contextual help throughout the interface
-
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -29,72 +24,56 @@ A powerful and intuitive Streamlit dashboard for visualizing and analyzing time 
 
 ### Setup Instructions
 
-1. **Clone or download this repository**
-   ```bash
-   git clone <repository-url>
-   cd SeriesViz
-   ```
+1.  **Clone the repository**
+    ```bash
+    git clone <repository-url>
+    cd SeriesViz
+    ```
 
-2. **Install required dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2.  **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-3. **Run the dashboard**
-   ```bash
-   ./run_dashboard.sh
-   ```
+3.  **Run the dashboard**
+    ```bash
+    ./run_dashboard.sh
+    ```
 
-4. **Open your browser**
-   - The dashboard will automatically open at `http://localhost:8501`
-   - If it doesn't open automatically, navigate to the URL manually
+4.  **Access the application**
+    - The dashboard will be available at `http://localhost:8501`.
 
-## 📖 Usage Guide
+## Usage Guide
 
-### 1. Upload Your Data
-- Click "Browse files" in the sidebar or drag and drop your CSV file
-- Supported format: CSV files only
-- The dashboard will automatically load and display your data
+1.  **Upload Data**: Use the file uploader in the sidebar to load a CSV file.
+2.  **Configure Data**:
+    - **Timestamp Column**: Select the column containing the timestamp information.
+    - **Variable Columns**: Select the numerical columns for analysis.
+3.  **Preprocess Data**:
+    - **Remove NaN Values**: Enable this option to clean the dataset.
+    - **Z-score Normalization**: Standardize variables for comparative analysis.
+4.  **Analyze**:
+    - **Time Series Plot**: Visualize the selected variables over time.
+    - **Rolling Correlation**: Set a window size and analyze the dynamic correlation between variables.
+    - **Statistical Summary**: Review summary statistics and correlation matrices.
+5.  **Export**: Download the processed data for use in other tools or models.
 
-### 2. Configure Your Data
-- **Timestamp Column**: Select the column containing your time/date information
-  - The dashboard will automatically convert it to datetime format
-  - Supported formats: '2023-01-01', '2023-01-01 10:30:00', etc.
-- **Variable Columns**: Select one or more columns to analyze
-  - These should contain numerical data you want to visualize
+## Data Requirements
 
-### 3. Preprocess Your Data
-- **Remove NaN Values**: Check this option to remove rows with missing values
-- **Z-score Normalization**: Check this option to standardize your variables
-  - This is useful when variables have different scales
-
-### 4. Explore Visualizations
-- **Time Series Plot**: Interactive plot showing your variables over time
-- **Rolling Correlation**: Analyze how correlations between variables change over time
-  - Adjust the window size to control the correlation calculation period
-- **Statistical Summary**: View descriptive statistics and correlation matrices
-
-### 5. Export Your Results
-- Download the processed data as a CSV file for further analysis
-
-## 📋 Data Requirements
-
-### Expected CSV Structure
-Your CSV file should have:
-- **One timestamp column**: Contains date/time information
-- **One or more variable columns**: Contains numerical data to analyze
-- **Consistent data types**: Timestamp column should be parseable as dates
+### CSV File Structure
+- The CSV file must contain at least one timestamp column and one or more numerical data columns.
+- The timestamp column should be in a format that is parsable by pandas (e.g., 'YYYY-MM-DD', 'YYYY-MM-DD HH:MM:SS').
 
 ### Example Data Format
 ```csv
-timestamp,temperature,humidity,pressure
-2023-01-01,20.1,65,1013.2
-2023-01-02,22.3,58,1010.8
-2023-01-03,19.8,72,1015.6
+timestamp,asset_price_1,asset_price_2,volume
+2023-01-01,150.1,200.5,10000
+2023-01-02,152.3,201.2,12000
+2023-01-03,151.8,203.6,11500
 ...
 ```
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Dependencies
 - **streamlit**: Web application framework
@@ -104,65 +83,28 @@ timestamp,temperature,humidity,pressure
 - **scipy**: Scientific computing (for Z-score normalization)
 
 ### Architecture
-The dashboard follows SOLID principles and KISS design:
-- **Single Responsibility**: Each function has one clear purpose
-- **Open/Closed**: Easy to extend with new features
-- **Dependency Inversion**: Modular design with clear interfaces
-- **Keep It Simple**: Intuitive user interface and straightforward code
-- **You Aren't Gonna Need It**: Only implements currently needed features
+The application is designed with a modular structure to ensure clarity and extensibility. Key functions are separated by responsibility, such as data loading, processing, and visualization, which allows for easier maintenance and addition of new analysis modules.
 
-### Key Functions
-- `load_data()`: Handles CSV file loading with error handling
-- `convert_to_datetime()`: Converts timestamp columns to datetime format
-- `remove_nan_values()`: Cleans data by removing missing values
-- `z_score_normalize()`: Standardizes variables using Z-score
-- `calculate_rolling_correlation()`: Computes rolling correlations between variables
-- `create_time_series_plot()`: Generates interactive time series visualizations
-- `create_correlation_plot()`: Creates rolling correlation plots
+## Use Cases for Financial Analysis
 
-## 🎯 Use Cases
+This toolkit is designed for:
+- **Quantitative Researchers**: Exploring datasets to find new patterns and relationships for model development.
+- **Portfolio Managers**: Analyzing the correlation between assets in a portfolio.
+- **Traders**: Identifying potential entry and exit signals based on technical indicators and correlations.
+- **Financial Analysts**: Visualizing economic data and its impact on market instruments.
 
-### Ideal For
-- **IoT Data Analysis**: Sensor data, device metrics, environmental monitoring
-- **Financial Time Series**: Stock prices, market indicators, trading data
-- **Scientific Research**: Experimental data, climate data, medical measurements
-- **Business Analytics**: Sales data, user metrics, performance indicators
-- **Quality Control**: Manufacturing data, process monitoring
+## Contributing
 
-### Example Scenarios
-1. **Weather Station Data**: Analyze temperature, humidity, and pressure correlations
-2. **Stock Market Analysis**: Compare multiple stock prices over time
-3. **Sensor Network**: Monitor multiple sensors in a manufacturing facility
-4. **Website Analytics**: Track user engagement metrics over time
+Contributions are welcome. Please adhere to the existing code structure and ensure that any new additions are well-documented and include appropriate error handling.
 
-## 🚀 Getting Started Quickly
-
-1. **Install dependencies**: `pip install -r requirements.txt`
-2. **Run the app**: `./run_dashboard.sh`
-3. **Upload a CSV file** with timestamp and numerical columns
-4. **Select your timestamp and variable columns**
-5. **Explore the visualizations!**
-
-## 🤝 Contributing
-
-This project follows clean code principles and welcomes contributions:
-- Follow SOLID principles
-- Keep functions simple and focused
-- Add comprehensive error handling
-- Include helpful documentation
-
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🆘 Support
+## Support
 
-If you encounter any issues:
-1. Check that your CSV file has the correct format
-2. Ensure your timestamp column contains parseable dates
-3. Verify that variable columns contain numerical data
-4. Check the console for any error messages
-
----
-
-**Happy visualizing! 📊✨**
+If you encounter issues, please verify the following:
+1.  The input CSV file is correctly formatted.
+2.  The timestamp column contains valid date/time information.
+3.  The variable columns for analysis contain numerical data.
+4.  Check the console output for any specific error messages.
