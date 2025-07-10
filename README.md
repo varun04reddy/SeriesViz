@@ -84,27 +84,3 @@ timestamp,asset_price_1,asset_price_2,volume
 
 ### Architecture
 The application is designed with a modular structure to ensure clarity and extensibility. Key functions are separated by responsibility, such as data loading, processing, and visualization, which allows for easier maintenance and addition of new analysis modules.
-
-## Use Cases for Financial Analysis
-
-This toolkit is designed for:
-- **Quantitative Researchers**: Exploring datasets to find new patterns and relationships for model development.
-- **Portfolio Managers**: Analyzing the correlation between assets in a portfolio.
-- **Traders**: Identifying potential entry and exit signals based on technical indicators and correlations.
-- **Financial Analysts**: Visualizing economic data and its impact on market instruments.
-
-## Contributing
-
-Contributions are welcome. Please adhere to the existing code structure and ensure that any new additions are well-documented and include appropriate error handling.
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Support
-
-If you encounter issues, please verify the following:
-1.  The input CSV file is correctly formatted.
-2.  The timestamp column contains valid date/time information.
-3.  The variable columns for analysis contain numerical data.
-4.  Check the console output for any specific error messages.
