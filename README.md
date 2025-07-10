@@ -42,7 +42,7 @@ A powerful and intuitive Streamlit dashboard for visualizing and analyzing time 
 
 3. **Run the dashboard**
    ```bash
-   streamlit run app.py
+   ./run_dashboard.sh
    ```
 
 4. **Open your browser**
@@ -138,7 +138,7 @@ The dashboard follows SOLID principles and KISS design:
 ## 🚀 Getting Started Quickly
 
 1. **Install dependencies**: `pip install -r requirements.txt`
-2. **Run the app**: `streamlit run app.py`
+2. **Run the app**: `./run_dashboard.sh`
 3. **Upload a CSV file** with timestamp and numerical columns
 4. **Select your timestamp and variable columns**
 5. **Explore the visualizations!**
